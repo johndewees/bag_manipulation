@@ -23,8 +23,8 @@ def validate_bags():
             error_log.write('Bagging Interruped Error | Directory: ' + directory + '\n')
         except RuntimeError:
             error_log.write('Runtime Error | Directory: ' + directory + '\n')
-    print('Bag Validation completed - Check error log for bags that need attention')
     error_log.close()
+    print('Bag Validation completed - Check error log for bags that need attention')
 
 def process_bags():
     error_log_handle = open('validation_error_log.txt', 'r')
@@ -48,6 +48,7 @@ def process_bags():
             #zips the bag to prepare for ingest into Preservica
             bdbag_api.archive_bag('bags_extract/' + directory, bag_archiver = 'zip')
     error_log_handle.close()
+    print('Bags prepared for Preservica SIP ingest')
 
 # extract_bags()
 # validate_bags()
